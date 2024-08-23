@@ -1,33 +1,23 @@
-var fakepwdAttempts = 0
-var fakePwd = prompt("set password please: ")
-var loggedIn = false
+var userName = prompt("What is your name? ")
+var fakePwd = prompt("Set password: ");
+var loggedIn = false;
+var reqAttempts = prompt("how many times must the correct password be entered?");
+var correctAttempts = 0;
 
 
-alert("Please Log in")
-var pwdAttempt = prompt("password?")
-if (pwdAttempt = fakePwd) {
-    alert("incorrect password")
-    var fakepwdAttempts = fakepwdAttempts + 1
-    var pwdAttempt = prompt("password?")
-    if (pwdAttempt = fakePwd) {
-        alert("incorrect password")
-        var fakepwdAttempts = fakepwdAttempts + 1
-        var pwdAttempt = prompt("password?")
-        if (pwdAttempt = fakePwd) {
-            alert("incorrect password")
-            var fakepwdAttempts = fakepwdAttempts + 1
-            var pwdAttempt = prompt("password?")
-            if (pwdAttempt = fakePwd){
-                alert("success!")
-                var loggedIn = true
-                alert(fakePwd)
-            }
-        } else {
-            alert("incorrect password")
-        } 
+while (!loggedIn) {
+    var pwdAttempt = prompt("Password, Please: ")
+
+    if (pwdAttempt === fakePwd) {
+        correctAttempts++
+
+        if (correctAttempts >= reqAttempts) {
+            alert("Success!")
+            loggedIn = true;
+            alert("Hello, " + userName + ". Your password is " + fakePwd);
+
+        }
     } else {
-        alert("incorrect password")
+        alert("incorrect password, please try again.")
     }
-} else {
-    alert("incorrect password")
-}
+} 
